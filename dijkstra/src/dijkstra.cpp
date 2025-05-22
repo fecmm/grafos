@@ -99,12 +99,13 @@ int main(int argc, char* argv[]) {
 
     for (int v = 1; v <= V; ++v) {
         if (v != 1) *out << " ";
-        *out << v << ":";
-        if (distances.find(v) != distances.end()) {
-            *out << distances[v];
-        } else {
-            *out << "-1";
-        }
+      *out << v << ":";
+if (distances.find(v) != distances.end()) {
+    *out << distances[v];
+} else {
+    *out << "-1";
+}
+
     }
     *out << "\n";
 
