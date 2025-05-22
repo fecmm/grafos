@@ -1,25 +1,24 @@
-CXX = g++
-CXXFLAGS = -std=c++11 -Wall -O2
+CC = gcc
+CFLAGS = -Wall -Wextra -O2 -std=c99
 TARGET = dijkstra
-SRC_DIR = src
-BUILD_DIR = build
-SRCS = $(SRC_DIR)/dijkstra.cpp
-OBJS = $(BUILD_DIR)/dijkstra.o
+SRC = dijkstra.c
+OBJ = $(SRC:.c=.o)
 
-all: $(BUILD_DIR)/$(TARGET)
+all: $(TARGET)
 
-$(BUILD_DIR)/$(TARGET): $(OBJS)
-	@mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(BUILD_DIR)
+	rm -f $(OBJ) $(TARGET)
 
-test: all
-	./$(BUILD_DIR)/$(TARGET) -f ../bat1/instances/sp_test.dat -i 1
+install: $(TARGET)
+	cp $(TARGET) /usr/local/bin/
 
-.PHONY: all clean test
+uninstall:
+	rm -f /usr/local/bin/$(TARGET)
+
+.PHONY: all clean install uninstall
