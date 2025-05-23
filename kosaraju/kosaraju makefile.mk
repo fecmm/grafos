@@ -1,26 +1,29 @@
-CXX = g++
-CXXFLAGS = -std=c++11 -Wall -O2
-TARGET = kosaraju
+INCLUDE_DIR = headers
 SRC_DIR = src
 BUILD_DIR = build
+TARGET = kosaraju
 
-SRCS = $(SRC_DIR)/kosaraju.cpp
-OBJS = $(BUILD_DIR)/kosaraju.o
+CC = gcc
+CFLAGS = -Wall -Wextra -I$(INCLUDE_DIR)
+
+SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/kosaraju.c
+OBJS = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
+
+.PHONY: all clean run
 
 all: $(BUILD_DIR)/$(TARGET)
 
 $(BUILD_DIR)/$(TARGET): $(OBJS)
-	@mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+	@mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) -o $@ $^
 
-$(BUILD_DIR)/%.o: $(SRC_DIR)/%..cpp
-	@mkdir -p $(@D)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE_DIR)/kosaraju.h
+	@mkdir -p $(BUILD_DIR)
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
 	rm -rf $(BUILD_DIR)
 
-test: all
-	./$(BUILD_DIR)/$(TARGET) -f ../../testes/instances_scc/grafo_scc.dat
-
-.PHONY: all clean test
+run: $(BUILD_DIR)/$(TARGET)
+	@echo "Executando algoritmo..."
+	@./$(BUILD_DIR)/$(TARGET) -h
