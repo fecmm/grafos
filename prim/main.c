@@ -3,6 +3,7 @@
 #include <string.h>
 #include "../headers/prim.h"
 
+
 void imprimirAjuda() {
     printf("Uso: ./prim [opções]\n");
     printf("  -h           : exibe ajuda\n");
