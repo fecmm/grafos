@@ -5,6 +5,7 @@
 
 #define MAX_VERTICES MAX
 
+
 typedef struct componente {
     int* nos;
     int tamanho;
