@@ -3,6 +3,7 @@
 
 #define MAX_VERTICES 1000
 
+
 typedef struct no {
     int vertice;
     struct no* prox;
