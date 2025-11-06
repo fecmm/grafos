@@ -13,6 +13,7 @@ void show_help() {
     printf("  -o <file>    : redirect output to file\n");
 }
 
+
 void load_edges(const char* filename, int* vertex_count, int* edge_file_count) {
     FILE* file = fopen(filename, "r");
     if (!file) {
