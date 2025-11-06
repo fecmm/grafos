@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "../headers/djikstra.h"
+#include "headers/dijkstra.h"
 
 
 void printHelp() {
@@ -79,3 +79,4 @@ int main(int argc, char *argv[]) {
 
     return 0;
 }
+
