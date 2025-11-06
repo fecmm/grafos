@@ -12,6 +12,7 @@ no* criarNo(int vertice, int peso) {
     return novoNo;
 }
 
+
 grafo* criarGrafo(int numeroVertices) {
     grafo* novoGrafo = malloc(sizeof(grafo));
     novoGrafo->nVertices = numeroVertices;
