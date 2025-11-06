@@ -6,6 +6,7 @@ TARGET = kosaraju
 CC = gcc
 CFLAGS = -Wall -Wextra -I$(INCLUDE_DIR)
 
+
 SRCS = $(SRC_DIR)/main.c $(SRC_DIR)/kosaraju.c
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
