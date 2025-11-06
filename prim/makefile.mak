@@ -2,6 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -g
 INCLUDES = -Iheaders
 
+
 OBJ = main.o prim.o
 
 prim: $(OBJ)
