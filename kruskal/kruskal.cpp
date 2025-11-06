@@ -12,6 +12,7 @@ struct Edge {
     }
 };
 
+
 vector<int> parent, rank_;
 
 void make_set(int v) {
