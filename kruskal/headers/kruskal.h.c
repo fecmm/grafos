@@ -3,6 +3,7 @@
 
 #define MAX_VERTICES 1000
 
+
 typedef struct {
     int source;
     int destination;
