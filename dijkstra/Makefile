@@ -1,5 +1,5 @@
 INCLUDE_DIR = headers
-SRC_DIR = algoritmo.
+SRC_DIR = dijkstra
 BUILD_DIR= build
 BIN = djikstra
 
