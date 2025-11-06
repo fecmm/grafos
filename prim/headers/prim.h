@@ -7,6 +7,7 @@ typedef struct no {
     struct no* prox;
 } no;
 
+
 typedef struct grafo {
     int nVertices;
     int nArestas;
