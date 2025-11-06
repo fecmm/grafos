@@ -4,6 +4,7 @@ TARGET = kruskal
 SRC_DIR = src
 BUILD_DIR = build
 
+
 SRCS = $(SRC_DIR)/kruskal.cpp
 OBJS = $(BUILD_DIR)/kruskal.o
 
