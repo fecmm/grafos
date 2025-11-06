@@ -1,24 +1,27 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -O2 -std=c99
-TARGET = dijkstra
-SRC = dijkstra.c
-OBJ = $(SRC:.c=.o)
+INCLUDE_DIR = headers
+SRC_DIR = algoritmo.
+BUILD_DIR= build
+BIN = djikstra
 
-all: $(TARGET)
+cc = gcc
+CFLAGS = -Wall  -I$(INCLUDE_DIR)
 
-$(TARGET): $(OBJ)
+SRCS= $(SRC_DIR)/main.c $(SRC_DIR)/djikstra.c
+
+OBJS= $(SRCS: $ (SRC_DIR)/%.C= $(BUILD_DIR)/%.o)
+
+all: $(BIN)
+
+$(BIN): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+
+$(SRC_DIR)/%.o: $(SRC_DIR)/%.c $(INCLUDE_DIR)/prim.h
+	$(CC) $(CFLAGS) -c -o $@ $<
+
 
 clean:
-	rm -f $(OBJ) $(TARGET)
+	rm -f $(SRC_DIR)/*.o $(BIN)
 
-install: $(TARGET)
-	cp $(TARGET) /usr/local/bin/
-
-uninstall:
-	rm -f /usr/local/bin/$(TARGET)
-
-.PHONY: all clean install uninstall
+run: $(BIN)
+	./$(BIN)
