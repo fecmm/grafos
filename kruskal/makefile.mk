@@ -7,6 +7,7 @@ INCLUDE_DIR = include
 BUILD_DIR = build
 TARGET = $(BUILD_DIR)/kruskal
 
+
 SRCS = $(SRC_DIR)/kruskal.c $(SRC_DIR)/main.c
 OBJS = $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
 
