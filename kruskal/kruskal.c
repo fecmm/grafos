@@ -10,6 +10,7 @@ int tree_rank[MAX_VERTICES];
 Edge edges[MAX_VERTICES * MAX_VERTICES];
 int edge_count = 0;
 
+
 void add_edge(int source, int destination, int weight) {
     edges[edge_count].source = source;
     edges[edge_count].destination = destination;
